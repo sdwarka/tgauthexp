@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-3">
+    
+  <div class="row bg-warning">
+      <!-- left padding col -->
+      <div class="col-2"></div>
+      
+      <div class="col">
+          <div class="card p-2">
+
+            <h4 class="text-primary display-5">Add Expense</h4>
+            <form action="/exp/add" method="POST">
+              <div class="card-body">
+
+                  <!-- expense date -->
+                  <div class="mb-3 mt-3">
+                    <label for="exp_date">Date:</label>
+                    <input id="exp_date" class="form-control p-3" type="date" name="v_exp_date"/>
+                  </div>
+
+                  <!-- expense head / category -->
+                  <div>
+                    <label for="head" class="mt-3">Category:</label>
+                    <select id="head" class="form-select p-3" name="v_exp_head">
+                      <option>-Select Expense Category-</option>
+                      <option>Household</option>
+                      <option>Car Maintenance</option>
+                      <option>Pet Expenses</option>
+                      <option>Toiletries</option>
+                    </select>
+                  </div>
+
+                  <!-- expense description -->
+                  <div class="mb-3 mt-3">
+                    <label for="description" class="mt-3">Expense:</label>
+                    <input id="description" class="form-control p-3" placeholder="Enter description" name="v_desc">
+                  </div>
+
+                  <!-- amount spent -->
+                  <div class="mb-3 mt-3">
+                    <label for="amt" class="mt-3">Amount:</label>
+                    <input id="amt" class="form-control p-3" placeholder="0.0" name="v_amt">
+                  </div>
+
+                  <!-- expense type and payment mode -->
+                  <div class="row mt-3">
+
+                    <div class="col-sm-6 ">
+                      <label for="exp_type" class="mt-3">Expense Type:</label>
+                      <select id="exp_type" class="form-select p-3" name="v_exp_type">
+                        <option>-Select Expense Type-</option>
+                        <option>Planned</option>
+                        <option>Unplanned</option>
+                        <option>Sundry</option>
+                      </select>
+                    </div>
+
+                    <div class="col-sm-6 ">
+                      <label for="pay_mode" class="mt-3">Payment Mode:</label>
+                      <select id="pay_mode" class="form-select p-3" name="v_pay_mode">
+                        <option>-Select Payment Mode-</option>
+                        <option>Credit Card</option>
+                        <option>Debit Card</option>
+                        <option>ECS/EFT</option>
+                        <option>Cash</option>
+                        <option>Wallet</option>
+                      </select>
+                    </div>
+
+                  </div>
+                  <!-- expense type and payment mode -->
+
+                  <div class="mt-3">
+                    <label for="remarks">Remarks:</label>
+                    <textarea id="remarks" class="form-control p-3" rows="5" name="v_remarks"></textarea>
+                  </div>
+
+              </div>
+
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+      </div> <!-- main data col -->
+      
+      <!-- right padding col -->
+      <div class="col-2"></div>
+      
+    </div> <!-- row -->
+
+</div>
+
+{% endblock %}

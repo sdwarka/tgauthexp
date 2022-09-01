@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid mt-3">
+  <div class="text-center">
+      <h1>Track your Expenses</h1>
+      <p>It is very easy to lose track of where you spent your money, on what and how you spent it. Cashifly helps you keep tabs on your spend.</p>
+  </div>
+
+  <div class="row">
+    <!-- left column padding -->
+    <div class="col p-3"></div>
+
+    <!-- main content -->
+    <div class="col p-3 bg-light">
+      <H4 class="display-5">Login</H4>
+      
+      <!-- display any messages -->
+      {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="p-3 bg-danger text-white text-center">
+                {{ messages[0] }}
+            </div>
+          {% endif %}
+      {% endwith %}
+        
+      <!-- the login form -->
+      <form action="/auth/login" method="POST">
+          
+          <!-- text box for email ID -->
+          <div class="mb-3 mt-3">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="Enter email" name="email">
+        </div>
+
+        <!-- text box for password -->
+        <div class="mb-3">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control form-control-lg" id="pwd" name="password" placeholder="Enter password" name="pswd">
+        </div>
+        
+        <!-- checkbox for remember me -->
+        <div class="form-check mb-3">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="remember"> Remember me
+          </label>
+        </div>
+         
+        <!-- form buttons -->
+        <button type="submit" class="btn btn-primary rounded-lg">Login</button>
+        <button type="button" class="btn btn-light rounded-lg"><a href="/auth/signup" class="btn btn-outline-primary">Sign up</a></button>
+          
+      </form>
+    </div>
+
+    <!-- right column padding -->
+    <div class="col p-3 text-white"></div>
+
+  </div> <!--row-->
+
+</div>
+
+{% endblock %}

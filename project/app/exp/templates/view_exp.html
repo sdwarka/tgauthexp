@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-3">
+    
+    <div class="row p-3">
+      <!-- left padding col -->
+      <div class="col-2"></div>
+      
+      <div class="col">
+          <h4 class="text-primary display-5">View Expenses</h4>
+
+          <form action="/">
+
+            <div class="card p-2">
+
+              <div class="card-body bg-light">
+
+                <!-- header row -->
+                <div class="row">
+                  <div class="col-2 p-3 bg-dark text-white">Date</div>
+                  <div class="col-4 p-3 bg-dark text-white">Expense Description</div>
+                  <div class="col-2 p-3 bg-dark text-white">Category</div>
+                  <div class="col-2 p-3 bg-dark text-white">Amount</div>
+                  <div class="col-2 p-3 bg-dark text-white">Payment Mode</div>
+                </div>
+
+                {% for exp in exp_data %}
+                <div class="row border border-white">
+                  <div class="col-2 p-3">{{ exp['exp_date'] }}</div>
+                  <div class="col-4 p-3">{{ exp['exp_desc'] }}</div>
+                  <div class="col-2 p-3">{{ exp['exp_catg'] }}</div>
+                  <div class="col-2 p-3">{{ exp['exp_amt' ] }}</div>
+                  <div class="col-2 p-3">{{ exp['exp_mode'] }}</div>
+                </div>
+                {% endfor %}
+
+              </div> 
+
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Back</button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+        
+        <!-- right padding col -->
+        <div class="col-2"></div>
+    </div><!--row-->
+
+</div>
+
+{% endblock %}

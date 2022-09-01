@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid mt-3">
+
+  <div class="text-center">
+      <h1>Track your Expenses</h1>
+      <p>Cashifly helps you keep tabs on your spend. Sign up now!</p>
+  </div>
+
+  <div class="row">
+    <!-- left column padding -->
+    <div class="col p-3"></div>
+
+    <!-- main content -->
+    <div class="col p-3 bg-light">
+      <H4 class="display-5 text-primary">Sign up</H4>
+
+      <!-- display any messages -->
+      {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="p-3 bg-danger text-white text-center">
+                {{ messages[0] }}. Try using a different email ID to register.</a>
+            </div>
+          {% endif %}
+      {% endwith %}
+
+      <!-- the signup form -->
+      <form action="/auth/signup" method="POST">
+          
+        <!-- text box for name -->
+        <div class="mb-3 mt-3">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" class="form-control form-control-lg" placeholder="Enter Name">
+        </div>
+          
+        <!-- text box for email ID -->
+        <div class="mb-3 mt-3">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" class="form-control form-control-lg" placeholder="Enter email">
+        </div>
+
+        <!-- text box for password -->
+        <div class="mb-3">
+          <label for="pwd">Password:</label>
+          <input type="password" id="pwd" name="password" class="form-control form-control-lg" placeholder="Enter password">
+        </div>
+
+        <!-- text box for re-enter password -->
+        <div class="mb-3">
+          <label for="repwd">Re-enter Password:</label>
+          <input type="password" id="repwd" name="repassword" class="form-control form-control-lg" disabled placeholder="(TODO) Re-enter password">
+        </div>
+        
+        <!-- form buttons -->
+        <button type="submit" class="btn btn-primary rounded-lg">Sign up</button>
+        <button type="button" class="btn btn-light rounded-lg"><a href="/auth/login" class="btn btn-outline-primary">Login</a></button>
+          
+      </form>
+    </div>
+
+    <!-- right column padding -->
+    <div class="col p-3 text-white"></div>
+
+  </div> <!--row-->
+
+</div>
+
+{% endblock %}
