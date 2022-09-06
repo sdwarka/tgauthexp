@@ -37,7 +37,10 @@ def login_post():
     login_user(user, remember=remember)
 
     # login successful, show the profile page
-    return redirect(url_for('main.profile'))
+    # return redirect(url_for('main.profile'))
+
+    # login successful, show the view expenses page
+    return redirect(url_for('exp.view'))
 
 ######################################################
 # route for displaying the signup form

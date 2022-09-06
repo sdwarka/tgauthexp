@@ -49,6 +49,10 @@ def __config_db(app):
     # https://flask-sqlalchemy.palletsprojects.com/en/2.x/contexts
     app.app_context().push()
 
+    # first, import the db models
+    from .auth import models
+    from .exp import models
+    
     # initialize the database
     db.init_app(app)
 
